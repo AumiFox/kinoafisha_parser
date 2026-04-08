@@ -4,9 +4,6 @@ import pandas as pd
 
 
 def parse_user_ratings_fast(user_id):
-    """
-    Быстрый парсинг оценок пользователя (только 1 страница)
-    """
     scraper = cloudscraper.create_scraper()
 
     headers = {
@@ -14,7 +11,7 @@ def parse_user_ratings_fast(user_id):
     }
 
     url = f"https://www.kinoafisha.info/user/{user_id}/votes/"
-    print(f"Загрузка страницы...")
+    print(f"Парсинг страницы...")
 
     response = scraper.get(url, headers=headers, timeout=10)
 
@@ -45,7 +42,7 @@ def parse_user_ratings_fast(user_id):
     return data
 
 
-# --- ЗАПУСК ---
+# --- ЗАПУСК ПАРСИНГА ---
 if __name__ == "__main__":
     user_id = 14287287  # Пользователь Comon
 
